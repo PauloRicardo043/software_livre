@@ -1,0 +1,715 @@
+/* Estilos para a área administrativa */
+:root {
+    --admin-primary:  #007bff;
+    --admin-secondary: #0d47a1;
+    --admin-accent: #FFC107;
+    --admin-success:  #007bff;
+    --admin-warning:  #007bff;
+    --admin-danger:  #007bff;
+    --admin-info:  #007bff;
+    --admin-light: #f8f9fa;
+    --admin-dark: #343a40;
+    --admin-gray:  #007bff;
+    --admin-border: #dee2e6;
+    --admin-text: #212529;
+    --admin-text-light: #6c757d;
+    --admin-sidebar-width: 250px;
+}
+
+/* Layout Administrativo */
+.admin-container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+.admin-sidebar {
+    width: var(--admin-sidebar-width);
+    background-color: var(--admin-dark);
+    color: white;
+    position: fixed;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 900;
+}
+
+.admin-content {
+    flex: 1;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: #f5f5f5;
+    min-height: calc(100vh - 80px);
+}
+
+/* Header Administrativo */
+.admin-header {
+    background-color: var(--admin-light);
+    border-bottom: 1px solid var(--admin-border);
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.admin-header h2 {
+    margin-bottom: 10px;
+    color: var(--admin-primary);
+}
+
+.admin-header p {
+    color: var(--admin-text-light);
+    margin-bottom: 0;
+}
+
+/* Sidebar */
+.admin-user {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.admin-user-avatar {
+    font-size: 2.5rem;
+    margin-right: 15px;
+    color: var(--admin-accent);
+}
+
+.admin-user-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.admin-user-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.admin-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-nav ul li {
+    margin: 0;
+}
+
+.admin-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.admin-nav ul li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.admin-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.admin-nav ul li.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left-color: var(--admin-accent);
+}
+
+/* Cards do Dashboard */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dashboard-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    font-size: 2rem;
+    color: white;
+}
+
+.card-icon.pending {
+    background-color: var(--admin-warning);
+}
+
+.card-icon.completed {
+    background-color: var(--admin-success);
+}
+
+.card-icon.approved {
+    background-color: var(--admin-success);
+}
+
+.card-icon.rejected {
+    background-color: var(--admin-success);
+}
+
+.card-icon.expired {
+    background-color: var(--admin-danger);
+}
+.card-icon.contact-new {
+    background-color: var(--admin-success);
+}
+.card-icon.contact-replied {
+    background-color: var(--admin-success);
+}
+.card-icon.contact {
+    background-color: var(--admin-info);
+}
+
+.card-icon.settings {
+    background-color: var(--admin-gray);
+}
+
+.card-icon.clients {
+    background-color: var(--admin-primary);
+}
+
+.card-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.card-content p {
+    margin: 0 0 15px 0;
+    color: var(--admin-text-light);
+}
+
+.card-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--admin-dark);
+    margin-bottom: 15px;
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--admin-primary);
+    font-weight: 500;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* Tabelas Administrativas */
+.admin-table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: var(--admin-text);
+}
+
+.admin-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.admin-table .actions {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: var(--admin-text);
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+    background-color: var(--admin-primary);
+    color: white;
+}
+
+.btn-icon.btn-delete:hover {
+    background-color: var(--admin-danger);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: var(--admin-warning);
+}
+
+.status-respondido {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--admin-success);
+}
+
+.status-expirado {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: var(--admin-danger);
+}
+
+/* Ações e Filtros */
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-search input {
+    border: none;
+    padding: 10px 15px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.admin-search button {
+    background-color: var(--admin-primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Cards Administrativos */
+.admin-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.admin-card-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--admin-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-card-header h3 {
+    margin: 0;
+    color: var(--admin-primary);
+}
+
+.admin-card-body {
+    padding: 20px;
+}
+
+/* Informações em Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--admin-text-light);
+}
+
+.info-value {
+    font-size: 1.1rem;
+}
+
+/* Lista de Serviços */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.service-item.selected {
+    border-color: var(--admin-success);
+    background-color: rgba(76, 175, 80, 0.05);
+}
+
+.service-check {
+    margin-right: 15px;
+    font-size: 1.5rem;
+    color: var(--admin-text-light);
+}
+
+.service-item.selected .service-check {
+    color: var(--admin-success);
+}
+
+.service-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
+
+.service-info p {
+    margin: 0;
+    color: var(--admin-text-light);
+    font-size: 0.9rem;
+}
+
+/* Conteúdo de Mensagem */
+.message-content {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.message-content h4 {
+    margin-top: 0;
+    color: var(--admin-primary);
+}
+
+/* Estado Vazio */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: var(--admin-text-light);
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: var(--admin-text);
+}
+
+.empty-state p {
+    color: var(--admin-text-light);
+    margin-bottom: 20px;
+}
+
+/* Tabs */
+.admin-tabs {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.tabs-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.tabs-nav li {
+    margin: 0;
+}
+
+.tabs-nav li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--admin-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tabs-nav li.active a {
+    color: var(--admin-primary);
+    border-bottom: 2px solid var(--admin-primary);
+}
+
+.tabs-content {
+    padding: 20px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Perfil */
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-avatar {
+    font-size: 5rem;
+    margin-right: 30px;
+    color: var(--admin-primary);
+}
+
+.profile-details h3 {
+    margin-top: 0;
+    color: var(--admin-primary);
+}
+
+.profile-details p {
+    margin-bottom: 10px;
+}
+
+.profile-details p strong {
+    display: inline-block;
+    width: 150px;
+}
+
+/* Página de Login */
+.login-page {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-logo img {
+    height: 60px;
+}
+
+.login-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--admin-primary);
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--admin-text-light);
+}
+
+.input-icon input {
+    padding-left: 40px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--admin-primary);
+}
+
+.btn-login:hover {
+    background-color: var(--admin-secondary);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--admin-text-light);
+}
+
+.login-footer p {
+    margin: 5px 0;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .admin-sidebar {
+        width: 70px;
+        overflow: visible;
+    }
+    
+    .admin-content {
+        margin-left: 70px;
+    }
+    
+    .admin-user-info,
+    .admin-nav ul li a span {
+        display: none;
+    }
+    
+    .admin-user {
+        justify-content: center;
+        padding: 15px 0;
+    }
+    
+    .admin-user-avatar {
+        margin-right: 0;
+    }
+    
+    .admin-nav ul li a {
+        justify-content: center;
+        padding: 15px 0;
+    }
+    
+    .admin-nav ul li a i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+    
+    .dashboard-cards {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: fixed;
+        left: -250px;
+        width: 250px;
+        z-index: 1000;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .admin-sidebar.active {
+        left: 0;
+    }
+    
+    .admin-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .admin-user-info,
+    .admin-nav ul li a span {
+        display: block;
+    }
+    
+    .admin-user {
+        justify-content: flex-start;
+        padding: 20px;
+    }
+    
+    .admin-user-avatar {
+        margin-right: 15px;
+    }
+    
+    .admin-nav ul li a {
+        justify-content: flex-start;
+        padding: 15px 20px;
+    }
+    
+    .admin-nav ul li a i {
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+    
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .tabs-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
