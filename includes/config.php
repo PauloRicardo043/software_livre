@@ -7,7 +7,7 @@ define('DB_NAME', 'idea_service_db');
 
 // Configurações do site
 define('SITE_NAME', 'IDEA Service');
-define('SITE_URL', 'http://localhost/idea_service');
+define('SITE_URL', 'http://192.168.0.5/idea_service/');
 define('ADMIN_EMAIL', 'admin@ideaservices.com.br');
 
 // Configurações de sessão
